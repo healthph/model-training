@@ -1,8 +1,4 @@
 import pandas as pd
-#import mappings as mp
-import readAnnotation as ra
-import annotatePosts as an
-#import cleanText as ct
 
 
 import numpy as np
@@ -21,11 +17,12 @@ dfa = df.sample(frac=1).reset_index(drop=True)
 
 dfa = dfa.sample(frac=1).reset_index(drop=True)
 dfa = dfa.sample(frac=1).reset_index(drop=True)
+
 #annotation
-dfa['AURI'] = dfa.apply(lambda x: ra.get_AURI(x['annotate']), axis=1)
-dfa['PN'] = dfa.apply(lambda x: ra.get_PN(x['annotate']), axis=1)
-dfa['TB'] = dfa.apply(lambda x: ra.get_TB(x['annotate']), axis=1)
-dfa['COVID'] = dfa.apply(lambda x: ra.get_COVID(x['annotate']), axis=1)
+dfa['xAURI'] = d.apply(lambda x: x['annotate'].count("AURI"), axis=1)
+dfa['xPN'] = d.apply(lambda x: x['annotate'].count("PN"), axis=1)
+dfa['xTB'] = d.apply(lambda x: x['annotate'].count("TB"), axis=1)
+dfa['xCOVID'] = d.apply(lambda x: x['annotate'].count("COVID"), axis=1)
 
 X = dfa["post"]
 y = np.asarray(dfa[dfa.columns[2:]])
