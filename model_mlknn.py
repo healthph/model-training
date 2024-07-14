@@ -19,10 +19,10 @@ dfa = dfa.sample(frac=1).reset_index(drop=True)
 dfa = dfa.sample(frac=1).reset_index(drop=True)
 
 #annotation
-dfa['xAURI'] = d.apply(lambda x: x['annotate'].count("AURI"), axis=1)
-dfa['xPN'] = d.apply(lambda x: x['annotate'].count("PN"), axis=1)
-dfa['xTB'] = d.apply(lambda x: x['annotate'].count("TB"), axis=1)
-dfa['xCOVID'] = d.apply(lambda x: x['annotate'].count("COVID"), axis=1)
+dfa['AURI'] = d.apply(lambda x: x['annotate'].count("AURI"), axis=1)
+dfa['PN'] = d.apply(lambda x: x['annotate'].count("PN"), axis=1)
+dfa['TB'] = d.apply(lambda x: x['annotate'].count("TB"), axis=1)
+dfa['COVID'] = d.apply(lambda x: x['annotate'].count("COVID"), axis=1)
 
 X = dfa["post"]
 y = np.asarray(dfa[dfa.columns[2:]])
